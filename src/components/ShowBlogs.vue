@@ -2,8 +2,8 @@
   <div id="show-blogs">
     <h1>All Blogs</h1>
     <input type="text" v-model="search" placeholder="Search blogs" />
-    <div class="single-blog" v-for="blog in filteredBlogs" v-bind:key="blog">
-      <h2 v-colourize>{{blog.title | toUppercase}}</h2>
+    <div class="single-blog" v-for="(blog,index) in filteredBlogs" v-bind:key="index">
+      <router-link v-bind:to="'/blog/'+blog.id"><h2 v-colourize>{{blog.title | toUppercase}}</h2></router-link>
       <article>{{ blog.body | snippet }}</article>
     </div>
   </div>
